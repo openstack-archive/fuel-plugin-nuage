@@ -1,0 +1,19 @@
+- id: controller-hiera-override
+  type: puppet
+  groups: [primary-controller, controller]
+  required_for: [globals]
+  requires: [hiera]
+  parameters:
+    puppet_manifest: puppet/manifests/controller-hiera-override.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 720
+ 
+- id: compute-hiera-override
+  type: puppet
+  groups: ['compute']
+  required_for: [globals]
+  requires: [hiera]
+  parameters:
+    puppet_manifest: puppet/manifests/compute-hiera-override.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 720
