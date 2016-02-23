@@ -1,0 +1,10 @@
+Code-Review+1: Rohit Pagedar <rohitpagedar@gmail.com>
+Code-Review+1: Vyacheslav Struk <vstruk@mirantis.com>
+Code-Review+2: Vishal Patil <vishpat@gmail.com>
+Workflow+1: Vishal Patil <vishpat@gmail.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Tue, 23 Feb 2016 19:41:11 +0000
+Reviewed-on: https://review.openstack.org/278140
+Project: openstack/fuel-plugin-nuage
+Branch: refs/heads/master
