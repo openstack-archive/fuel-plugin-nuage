@@ -42,6 +42,8 @@ class nuage::params {
         $python_twisted = 'python-twisted'
 
         $nuage_neutron  = 'nuage-openstack-neutron'
+        $nuage_openstack_horizon = 'nuage-openstack-horizon'
+        $nuage_openstack_heat = 'nuage-openstack-heat'
         $nuage_metadata_agent = 'nuage-metadata-agent'
         $nuage_openstack_neutronclient = 'nuage-openstack-neutronclient'
         $nuage_python_nuagenetlib = 'nuagenetlib'
