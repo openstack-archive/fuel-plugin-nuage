@@ -1,6 +1,6 @@
 # Configure the VRS on compute
 class nuage::compute::configure_vrs {
-
+  
   include ::nuage::params
 
   package { $::nuage::params::openvswitch_switch:
@@ -13,12 +13,12 @@ class nuage::compute::configure_vrs {
     ensure  => 'present',
     require => Package[$::nuage::params::openvswitch_switch]
   }
-
+  
   file { '/etc/default/openvswitch-switch':
     require => Package[$::nuage::params::nuage_openvswitch_switch],
     notify  => Service[$::nuage::params::nuage_openvswitch_switch]
   }
-
+  
   File_line<||> ~> Service[$::nuage::params::nuage_openvswitch_switch]
   File['/etc/default/openvswitch-switch'] -> File_line<||>
 

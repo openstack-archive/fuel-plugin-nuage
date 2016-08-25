@@ -1,9 +1,9 @@
 # Install nuage metadata agent packages
 
 class nuage::compute::install_nuage_metadata_agent {
-
+  
   include ::nuage::params
-
+  
   package { $::nuage::params::python_novaclient:
     ensure => present,
   }

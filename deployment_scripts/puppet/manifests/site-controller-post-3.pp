@@ -1,1 +1,2 @@
-include nuage::controller::install_nuage_neutron
+include nuage
+include nuage::controller::configure_nuage_plugin

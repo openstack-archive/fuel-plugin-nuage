@@ -1,2 +1,1 @@
-include nuage
-include nuage::controller::configure_nuage_plugin
+include nuage::controller::configure_nuage_horizon

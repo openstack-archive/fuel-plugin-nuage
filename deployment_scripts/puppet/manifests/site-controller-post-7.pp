@@ -1,1 +1,2 @@
-include nuage::controller::configure_nuage_horizon
+include nuage
+include nuage::controller::nuage_db_sync

@@ -10,6 +10,9 @@ attributes:
     description: 'Nuage Net Partition name for VSD'
     weight: 20
     type: "text"
+    regex:
+      source: '^\S{1,}$'
+      error: "Nuage Net Partition name is required"
   nuage_vsd_ip:
     value: ''
     label: 'VSD IP address'
@@ -25,18 +28,27 @@ attributes:
     description: 'VSD user'
     weight: 40
     type: "text"
+    regex:
+      source: '^\S{1,}$'
+      error: "VSD username is required"
   nuage_vsd_password:
     value: ''
     label: 'VSD password'
     description: 'VSD password'
     weight: 50
     type: "text"
+    regex:
+      source: '^\S{1,}$'
+      error: "VSD password is required"
   nuage_vsd_organization:
     value: ''
     label: 'VSD organization name'
     description: 'VSD organization'
     weight: 60
     type: "text"
+    regex:
+      source: '^\S{1,}$'
+      error: "VSD organization name is required"
   nuage_base_uri_version:
     value: ''
     label: 'Nuage base uri version'
@@ -88,6 +100,9 @@ attributes:
     description: 'Nuage CMS ID'
     weight: 130
     type: "text"
+    regex:
+      source: '^\S{1,}$'
+      error: "CMS ID is required"
   pat_to_underlay:
     value: false
     label: "PAT to Underlay"

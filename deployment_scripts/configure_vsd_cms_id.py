@@ -51,7 +51,7 @@ def init_arg_parser():
     parser.add_argument('--serverssl', action='store', required=True,
                         help='VSD Server SSL')
     parser.add_argument('--base_uri', action='store', required=True,
-                        help='Nuage Base URI')
+                        help='Nuage Base URI')    
     parser.add_argument('--name', action='store',
                         default=DEFAULT_CMS_NAME,
                         help='The name of the CMS to create on VSD')

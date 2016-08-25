@@ -1,1 +1,1 @@
-include nuage::controller::disable_neutron_services
+include nuage::controller::install_nuage_neutron

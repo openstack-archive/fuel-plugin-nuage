@@ -1,11 +1,3 @@
-- role: ['primary-controller']
-  stage: post_deployment/6001
-  type: shell
-  parameters:
-    cmd: sudo bash ./disable_pacemaker_neutron_services.sh
-    timeout: 720
-  fail_on_error: false
-
 - role: ['primary-controller','controller']
   stage: post_deployment/6002
   type: shell
@@ -13,7 +5,7 @@
     cmd: sudo bash ./pre_controller_setup.sh
     timeout: 720
   fail_on_error: false
-
+ 
 - role: ['compute']
   stage: post_deployment/6003
   type: shell
@@ -70,7 +62,7 @@
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 720
 
-- role: ['primary-controller','controller']
+- role: ['primary-controller']
   stage: post_deployment/6010
   type: puppet
   parameters:
@@ -78,16 +70,8 @@
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 720
 
-- role: ['primary-controller','controller']
-  stage: post_deployment/6011
-  type: puppet
-  parameters:
-    puppet_manifest: puppet/manifests/site-controller-post-8.pp
-    puppet_modules: puppet/modules:/etc/puppet/modules
-    timeout: 720
-
 - role: ['compute']
-  stage: post_deployment/6012
+  stage: post_deployment/6011
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/site-compute-post-1.pp
@@ -95,7 +79,7 @@
     timeout: 720
 
 - role: ['compute']
-  stage: post_deployment/6013
+  stage: post_deployment/6012
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/site-compute-post-2.pp
@@ -103,12 +87,20 @@
     timeout: 720
 
 - role: ['compute']
-  stage: post_deployment/6014
+  stage: post_deployment/6013
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/site-compute-post-3.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 720
+
+- role: ['primary-controller','controller']
+  stage: post_deployment/6014
+  type: shell
+  parameters:
+    cmd: sudo bash ./neutron_server_restart.sh
+    timeout: 720
+  fail_on_error: false
 
 - role: ['primary-controller','controller']
   stage: post_deployment/6015
@@ -117,3 +109,12 @@
     cmd: sudo bash ./test_neutron_setup_with_nuage_plugin.sh
     timeout: 720
   fail_on_error: true
+
+- role: ['primary-controller']
+  stage: post_deployment/6016
+  type: puppet
+  parameters:
+    puppet_manifest: puppet/manifests/site-controller-post-8.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 1440
+  fail_on_error: false

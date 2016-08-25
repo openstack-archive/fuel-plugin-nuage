@@ -1,1 +1,2 @@
-include nuage::controller::configure_nuage_heat
+include nuage
+include nuage::controller::setup_neutron_networks

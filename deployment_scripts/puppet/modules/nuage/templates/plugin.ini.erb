@@ -1,15 +1,15 @@
 [RESTPROXY]
 # Desired Name of VSD Organization/Enterprise to use when net-partition
 # is not specified
-default_net_partition_name = <%= scope.lookupvar('nuage::net_partition_name') %>
+default_net_partition_name = <%= scope.lookupvar('nuage::net_partition_name') %> 
 # Hostname or IP address and port for connection to VSD server
 server = <%= scope.lookupvar('nuage::vsd_ip') %>
 # VSD Username and password for OpenStack plugin connection
 # User must belong to CSP Root group and CSP CMS group
-serverauth = <%= scope.lookupvar('nuage::vsd_username') %>:<%= scope.lookupvar('nuage::vsd_password') %>
-
+serverauth = <%= scope.lookupvar('nuage::vsd_username') %>:<%= scope.lookupvar('nuage::vsd_password') %> 
+ 
 ### Do not change the below options for standard installs
-organization = <%= scope.lookupvar('nuage::vsd_organization') %>
+organization = <%= scope.lookupvar('nuage::vsd_organization') %> 
 auth_resource = /me
 serverssl = True
 base_uri = /nuage/api/<%= scope.lookupvar('nuage::base_uri_version') %>

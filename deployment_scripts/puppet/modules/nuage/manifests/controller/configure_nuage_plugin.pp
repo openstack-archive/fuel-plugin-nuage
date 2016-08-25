@@ -19,6 +19,12 @@ class nuage::controller::configure_nuage_plugin {
     group  => 'neutron',
     mode   => '0640'
   } ->
+  file_line {'add_neutron_defaults':
+    ensure => 'present',
+    line   => '. /etc/default/neutron-server',
+    path   => '/etc/init/neutron-server.conf',
+    after  => 'neutron_plugin_ini_path',
+  } ->
   file { '/etc/neutron/plugins/nuage/plugin.ini':
     ensure  => 'present',
     require => File['/etc/neutron/plugins/nuage'],
